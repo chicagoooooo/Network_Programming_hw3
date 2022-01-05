@@ -1,5 +1,11 @@
 有防呆機制，若封包檔案不存在印出檔案不存在，若沒有按照./hw3 filename打會印出usage
 
+
+多分析packet
+len
+caplen
+
+
 多辨認的ethertype
 	AARP
 	ARP
