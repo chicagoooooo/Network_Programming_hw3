@@ -184,7 +184,9 @@ void print_ip4_table(struct ip *ip,const u_char *packet_content){
     }else if(protocal == IPPROTO_UDP){
         struct udphdr *udp = (struct udphdr *)(packet_content + ETHER_HDR_LEN + (ip->ip_hl << 2));
         print_UDP_table(udp);
-    }else {
+    }else if(protocal == 89){
+        printf("Protocal : OSPF\n");
+    }else{
         printf("Can't recognize this protocal\n");
     }
     
@@ -211,6 +213,8 @@ void print_ip6_table(struct ip6_hdr *ip6,const u_char *packet_content){
     }else if(next_hdr==IPPROTO_UDP){
         struct udphdr *udp = (struct udphdr *)(packet_content+ ETHER_HDR_LEN + sizeof(struct ip6_hdr));
         print_UDP_table(udp);
+    }else if(next_hdr==89){
+        printf("Protocal : OSPF\n");
     }else {
         printf("Can't recognize this protocal\n");
     }
